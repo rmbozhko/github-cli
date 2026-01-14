@@ -1,71 +1,69 @@
-# go-cli-template
-This is a template that is designed to be used with GitHub Codespaces to get you up and running with your CLI project in a matter of minutes.
+# GitHub Command-Line Companion
 
-This project is using https://github.com/spf13/cobra as a foundation.
+A lightweight, terminal-first GitHub CLI that allows you to **manage GitHub issues** and **inspect recent user activity** directly from the command line.  
+This project is designed as a practical learning exercise for working with REST APIs, JSON, authentication, and CLI application design — without relying on external HTTP libraries.
 
-## Getting started
+---
 
-To get started, first you need to decide if you want to `fork` or `template` this repository. In simple terms, with a fork you will have a copy of this repository in your own GitHub account and you can make changes to it as you wish, as well as the ability to pull any updates made from this top level template repository. With a template, you will have a copy of this repository in your own GitHub account as it stands in its current form. You will be able to make changes to the code and make the project your own, but you will not be able to push those changes back to this template repository.
+## Table of Contents
 
-### Forking / Templating
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [GitHub User Activity](#github-user-activity)
+  - [Issue Management](#issue-management)
+- [Authentication](#authentication)
+- [Editor Integration](#editor-integration)
+- [Error Handling](#error-handling)
+- [API Usage](#api-usage)
+- [Constraints](#constraints)
+- [Future Enhancements](#future-enhancements)
+- [Project Goals](#project-goals)
 
-![Forking or templating](./assets/fork-or-template.png)
+---
 
-### Creating a codespace
+## Overview
 
-Once you have your own copy of this repository, you can create a codespace by clicking the green `Code` button and selecting `New Codespace`.
+**GitHub Command-Line Companion** is a CLI tool that enables developers to interact with GitHub without leaving the terminal.
 
-![Template codespace](./assets/template-button.png)
+It supports two primary workflows:
 
-OR
+1. **Viewing recent GitHub user activity**
+2. **Creating, reading, updating, and closing GitHub issues**
 
-![Codeing codespace](./assets/code-button.png)
+The tool emphasizes:
+- Clear terminal output
+- Predictable commands
+- Safe editor-based text input
+- Graceful error handling
+- Direct use of the GitHub REST API
 
-Once you have chosen your method, you will be presented with a screen that looks like this:
+---
 
-![Codespace creation](./assets/codespace-setup.png)
+## Features
 
-Wait for this to finish and you will be presented with a screen that looks like VSCode, but in your browser.
+### ✅ User Activity Viewer
+- Fetch recent public activity of any GitHub user
+- Human-readable terminal output
+- No authentication required (optional for higher rate limits)
 
-Once this has opened you will need to wait just a moment longer for the post create command to finish setting up the environment. You will know this is done when you see the following in the terminal:
+### ✅ Issue Management (Authenticated)
+- Create new issues
+- View existing issues
+- Update issue title and body
+- Close issues
+- Navigate:
+  - Bug reports (issues with `bug` label)
+  - Milestones
+  - Users (authors, assignees)
 
-![Post create command](./assets/post-create-command.png)
+### ✅ Editor-Based Input
+- Automatically opens the user’s preferred text editor for long text input
+- No awkward multiline terminal prompts
 
-Once this is done, you are ready to start coding!
-
-## Running out of the box
-run the commands:
-
-```bash
-go build
-./go-cli-template
-```
-
-## Commands
-
-So far there is only 1 command created, `example` and this can be seen within the `/cmd` directory.
-
-The pre-installed Cobra CLI tools can help make your project far more extensible with little work.
-
-To see the commands available with Cobra, run the command: 
-
-```bash
-cobra-cli -h
-```
-
-This will show you the following output:
-
-![Cobra CLI help](./assets/cobra-cli.png)
-
-### Adding a new command
-
-Adding a new command at the root level is very easy to do, you just need to use the following command:
-
-```bash
-cobra-cli add <name of new command>
-```
-
-Once you have done this, navigate to the new command within the `/cmd` directory and edit the boilerplate code provided for your needs.
-
-This is a basic foundation for you to build ontop of without the hassel of setup. Adding flags and subcommand palletes is bespoke to your own projet and information on how to do that can be found in the offical docs - https://pkg.go.dev/github.com/spf13/cobra#section-readme
-
+### ✅ Robust Error Handling
+- Invalid usernames
+- API failures
+- Authentication errors
+- Rate limit handling
